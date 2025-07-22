@@ -3,7 +3,7 @@
  * This simulates the data that will come from the backend
  */
 
-import { Event, Artist, TicketType, MediaItem, Venue } from '@/types/entities'
+import { Event, Artist, TicketType, MediaItem, Venue, EventStatus, EventCategory, TicketStatus } from '@/types/entities'
 
 // Mock artists - Famous Argentine artists
 export const mockArtists: Artist[] = [
@@ -471,6 +471,119 @@ export const mockEvents: Event[] = [
     tickets: [],
     createdAt: new Date('2024-01-01'),
     updatedAt: new Date('2024-01-01')
+  },
+
+  // Eventos específicos de bowling
+  {
+    id: 'event-9',
+    title: 'Noche de Bowling Familiar',
+    description: 'Diversión garantizada para toda la familia. Pistas especiales con barandas para niños, música familiar y promociones especiales en comida y bebida.',
+    slug: 'noche-bowling-familiar',
+    date: new Date('2025-08-15'),
+    startTime: '19:00',
+    endTime: '23:00',
+    status: 'published' as EventStatus,
+    category: 'special' as EventCategory,
+    featured: true,
+    artists: [],
+    venue: {
+      name: 'La Barra Bowling - Todas las Pistas',
+      capacity: 300,
+      minAge: 0
+    },
+    coverImage: '/images/events/bowling-familiar.jpg',
+    gallery: [],
+    tickets: [
+      {
+        id: 'ticket-bowling-1',
+        eventId: 'event-9',
+        name: 'Pista 1 Hora + Zapatos',
+        description: 'Una hora de pista para hasta 6 jugadores + alquiler de zapatos',
+        price: 15000,
+        originalPrice: 18000,
+        currency: 'ARS',
+        maxPerPurchase: 4,
+        totalQuantity: 50,
+        soldQuantity: 8,
+        status: 'available' as TicketStatus,
+        perks: ['Zapatos incluidos', '6 jugadores máx', 'Bebida gratis para niños'],
+        createdAt: new Date('2024-01-01'),
+        updatedAt: new Date('2024-01-01')
+      },
+      {
+        id: 'ticket-bowling-2', 
+        eventId: 'event-9',
+        name: 'Combo Familia 2hs + Comida',
+        description: '2 horas de pista + menu familiar para 4 personas + zapatos',
+        price: 35000,
+        originalPrice: 42000,
+        currency: 'ARS',
+        maxPerPurchase: 2,
+        totalQuantity: 20,
+        soldQuantity: 3,
+        status: 'available' as TicketStatus,
+        perks: ['2 horas de juego', 'Menu familiar', 'Zapatos incluidos', 'Hasta 6 jugadores'],
+        createdAt: new Date('2024-01-01'),
+        updatedAt: new Date('2024-01-01')
+      }
+    ],
+    createdAt: new Date('2024-01-01'),
+    updatedAt: new Date('2024-01-01')
+  },
+
+  {
+    id: 'event-10',
+    title: 'Torneo Bowling + After Party',
+    description: 'Competencia de bowling seguida de fiesta con DJ. Premios para los ganadores y ambiente nocturno para cerrar la noche.',
+    slug: 'torneo-bowling-after-party',
+    date: new Date('2025-08-25'), 
+    startTime: '21:00',
+    endTime: '03:00',
+    status: 'published' as EventStatus,
+    category: 'mixed' as EventCategory,
+    featured: false,
+    artists: [mockArtists[1]], // Hernán Cattáneo
+    venue: {
+      name: 'La Barra Bowling + Lounge',
+      capacity: 300,
+      minAge: 18
+    },
+    coverImage: '/images/events/torneo-bowling.jpg',
+    gallery: [],
+    tickets: [
+      {
+        id: 'ticket-torneo-1',
+        eventId: 'event-10',
+        name: 'Participante Torneo',
+        description: 'Inscripción al torneo + after party + zapatos',
+        price: 8500,
+        currency: 'ARS',
+        maxPerPurchase: 1,
+        totalQuantity: 48,
+        soldQuantity: 12,
+        status: 'available' as TicketStatus,
+        perks: ['Participación en torneo', 'Acceso a after party', 'Zapatos incluidos', 'Bebida bienvenida'],
+        createdAt: new Date('2024-01-01'),
+        updatedAt: new Date('2024-01-01')
+      },
+      {
+        id: 'ticket-torneo-2',
+        eventId: 'event-10',
+        name: 'Solo After Party', 
+        description: 'Acceso únicamente a la fiesta posterior al torneo',
+        price: 4500,
+        currency: 'ARS',
+        maxPerPurchase: 4,
+        totalQuantity: 100,
+        soldQuantity: 25,
+        status: 'available' as TicketStatus,
+        perks: ['DJ Set', 'Acceso completo al lounge', 'Bebida bienvenida'],
+        createdAt: new Date('2024-01-01'),
+        updatedAt: new Date('2024-01-01')
+      }
+    ],
+    createdAt: new Date('2024-01-01'),
+    updatedAt: new Date('2024-01-01')
   }
 ]
 
@@ -478,37 +591,37 @@ export const mockEvents: Event[] = [
 export const mockVenue: Venue = {
   id: 'venue-1',
   name: 'La Barra',
-  description: 'El boliche más exclusivo de la ciudad. Un espacio diseñado para vivir las mejores noches con la mejor música, tragos premium y un ambiente único.',
+  description: 'Discoteca y club nocturno en San Salvador de Jujuy. El lugar perfecto para vivir las mejores noches con música increíble, ambiente único y la diversión que buscas.',
   address: {
-    street: 'Av. Córdoba 1234',
-    city: 'Buenos Aires',
-    state: 'CABA',
-    zipCode: '1055',
+    street: 'Mejías - Esq. San Luis',
+    city: 'San Salvador de Jujuy',
+    state: 'Jujuy',
+    zipCode: '4600',
     country: 'Argentina',
     coordinates: {
-      lat: -34.6037,
-      lng: -58.3816
+      lat: -24.1858,
+      lng: -65.2995
     }
   },
-  phone: '+54 11 4567-8900',
-  email: 'info@labarra.com',
+  phone: '0388 521-6068',
+  email: 'jcpproducciones9@gmail.com',
   website: 'https://labarra.com',
   socialLinks: {
-    instagram: 'https://instagram.com/labarraclub',
-    facebook: 'https://facebook.com/labarraclub',
-    tiktok: 'https://tiktok.com/@labarraclub'
+    instagram: 'https://www.instagram.com/labarrabowling/',
+    facebook: 'https://facebook.com/labarrabowling',
+    whatsapp: '+54 9 388 521-6068'
   },
-  capacity: 450,
-  minAge: 18,
-  dresscode: 'Elegante sport. No se permite ingreso en jogging, ojotas o ropa deportiva.',
+  capacity: 400,
+  minAge: 18, // Solo adultos
+  dresscode: 'Elegante / Smart Casual. Se reserva el derecho de admisión.',
   hours: {
-    'thursday': { open: '23:00', close: '05:00' },
-    'friday': { open: '23:00', close: '06:00' },
-    'saturday': { open: '23:00', close: '06:00' },
-    'sunday': { closed: true },
-    'monday': { closed: true },
-    'tuesday': { closed: true },
-    'wednesday': { closed: true }
+    'thursday': { open: '', close: '' }, // Cerrado
+    'friday': { open: '00:30', close: '05:30' }, // 12:30 AM - 5:30 AM
+    'saturday': { open: '21:30', close: '05:30' }, // 9:30 PM - 5:30 AM
+    'sunday': { open: '', close: '' }, // Cerrado
+    'monday': { open: '', close: '' }, // Cerrado
+    'tuesday': { open: '', close: '' }, // Cerrado
+    'wednesday': { open: '', close: '' } // Cerrado
   },
   logo: '/images/logo.png',
   images: mockGallery,

@@ -4,6 +4,7 @@ import "./globals.css";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { CartDrawer } from "@/components/cart/cart-drawer";
+import { ToastContainer } from "@/components/ui/toast";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -11,10 +12,10 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "La Barra - El Boliche Más Exclusivo",
-  description: "Vive las mejores noches en La Barra. Eventos únicos, música increíble y un ambiente exclusivo que no vas a olvidar.",
-  keywords: ["boliche", "discoteca", "eventos", "música", "fiesta", "Buenos Aires"],
-};
+  title: 'La Barra - Discoteca y Club Nocturno | San Salvador de Jujuy',
+  description: 'La discoteca más exclusiva de San Salvador de Jujuy. Vive las mejores noches con música increíble y ambiente único. Abierto viernes y sábados.',
+  keywords: ['discoteca jujuy', 'club nocturno jujuy', 'san salvador de jujuy', 'vida nocturna', 'la barra', 'discoteca', 'eventos jujuy'],
+}
 
 export default function RootLayout({
   children,
@@ -32,6 +33,7 @@ export default function RootLayout({
         </main>
         <Footer />
         <CartDrawer />
+        <ToastContainer />
       </body>
     </html>
   );

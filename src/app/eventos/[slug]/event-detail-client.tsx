@@ -28,6 +28,7 @@ import {
 } from 'lucide-react'
 import { mockVenue } from '@/lib/mock-data'
 import { useCartStore } from '@/stores/cart-store'
+import { useToastActions } from '@/components/ui/toast'
 import { formatPrice } from '@/lib/utils'
 import { Event } from '@/types/entities'
 
@@ -40,6 +41,7 @@ export function EventDetailClient({ event }: EventDetailClientProps) {
   const [isLiked, setIsLiked] = useState(false)
   const [imageLoaded, setImageLoaded] = useState(false)
   const { addItem, openCart } = useCartStore()
+  const { showCartSuccess, showCartError } = useToastActions()
 
   // Check if image exists
   useEffect(() => {
@@ -77,29 +79,45 @@ export function EventDetailClient({ event }: EventDetailClientProps) {
   }
 
   const handleAddToCart = () => {
+    let totalTicketsAdded = 0
+    let ticketsAdded: string[] = []
+
     // Add each selected ticket type to cart
     Object.entries(selectedTickets).forEach(([ticketId, quantity]) => {
       if (quantity > 0) {
         const ticket = event.tickets?.find(t => t.id === ticketId)
         if (ticket) {
-          addItem({
-            eventId: event.id,
-            eventTitle: event.title,
-            eventDate: event.date,
-            eventSlug: event.slug,
-            ticket,
-            quantity,
-            unitPrice: ticket.price
-          })
+          try {
+            addItem({
+              eventId: event.id,
+              eventTitle: event.title,
+              eventDate: event.date,
+              eventSlug: event.slug,
+              ticket,
+              quantity,
+              unitPrice: ticket.price
+            })
+            totalTicketsAdded += quantity
+            ticketsAdded.push(`${quantity} ${ticket.name}`)
+          } catch (error) {
+            showCartError(`No se pudo agregar ${ticket.name}`)
+            return
+          }
         }
       }
     })
 
-    // Reset selected tickets
-    setSelectedTickets({})
-    
-    // Open cart to show added items
-    openCart()
+    if (totalTicketsAdded > 0) {
+      // Show success toast
+      const ticketText = ticketsAdded.join(', ')
+      showCartSuccess(ticketText, totalTicketsAdded)
+
+      // Reset selected tickets
+      setSelectedTickets({})
+      
+      // Open cart to show added items
+      openCart()
+    }
   }
 
   const handleShare = () => {

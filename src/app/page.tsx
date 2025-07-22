@@ -35,21 +35,8 @@ export default function HomePage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            El boliche más exclusivo de la ciudad. Vive las mejores noches con música increíble y un ambiente único.
+            La discoteca más exclusiva de San Salvador de Jujuy. Vive las mejores noches con música increíble y un ambiente único.
           </motion.p>
-          <motion.div 
-            className="flex flex-col sm:flex-row gap-4 justify-center"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-          >
-            <Button size="xl" asChild>
-              <a href="#eventos">Ver Próximos Eventos</a>
-            </Button>
-            <Button variant="outline" size="xl" asChild>
-              <a href="/galeria">Ver Galería</a>
-            </Button>
-          </motion.div>
         </Container>
       </section>
 

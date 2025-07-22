@@ -7,10 +7,11 @@ import Link from 'next/link'
 import { Instagram, Facebook, MapPin, Phone, Mail, Clock } from 'lucide-react'
 import { Container } from '@/components/ui/container'
 import { Button } from '@/components/ui/button'
+import { mockVenue } from '@/lib/mock-data'
 
 const socialLinks = [
-  { name: 'Instagram', href: '#', icon: Instagram },
-  { name: 'Facebook', href: '#', icon: Facebook },
+  { name: 'Instagram', href: mockVenue.socialLinks.instagram, icon: Instagram },
+  { name: 'Facebook', href: 'https://facebook.com/labarrabowling', icon: Facebook },
 ]
 
 const quickLinks = [
@@ -35,7 +36,7 @@ export function Footer() {
                 <span className="text-xl font-bold text-white">La Barra</span>
               </div>
               <p className="text-gray-400 mb-6 max-w-md">
-                El boliche más exclusivo de la ciudad. Vive las mejores noches con la mejor música, 
+                La discoteca más exclusiva de San Salvador de Jujuy. Vive las mejores noches con la mejor música, 
                 tragos premium y un ambiente único que no vas a olvidar.
               </p>
               
@@ -80,26 +81,27 @@ export function Footer() {
                 <div className="flex items-start space-x-2">
                   <MapPin className="h-4 w-4 text-purple-400 mt-1 flex-shrink-0" />
                   <span className="text-gray-400 text-sm">
-                    Av. Córdoba 1234<br />
-                    Buenos Aires, Argentina
+                    Mejías - Esq. San Luis<br />
+                    San Salvador de Jujuy, Argentina 4600
                   </span>
                 </div>
                 
                 <div className="flex items-center space-x-2">
                   <Phone className="h-4 w-4 text-purple-400 flex-shrink-0" />
-                  <span className="text-gray-400 text-sm">+54 11 4567-8900</span>
+                  <span className="text-gray-400 text-sm">0388 521-6068</span>
                 </div>
                 
                 <div className="flex items-center space-x-2">
                   <Mail className="h-4 w-4 text-purple-400 flex-shrink-0" />
-                  <span className="text-gray-400 text-sm">info@labarra.com</span>
+                  <span className="text-gray-400 text-sm">jcpproducciones9@gmail.com</span>
                 </div>
                 
                 <div className="flex items-start space-x-2">
                   <Clock className="h-4 w-4 text-purple-400 mt-1 flex-shrink-0" />
                   <div className="text-gray-400 text-sm">
-                    <div>Jue - Sáb: 23:00 - 06:00</div>
-                    <div>Dom - Mié: Cerrado</div>
+                    <div>Vie: 00:30 - 05:30</div>
+                    <div>Sáb: 21:30 - 05:30</div>
+                    <div>Dom - Jue: Cerrado</div>
                   </div>
                 </div>
               </div>
@@ -112,6 +114,8 @@ export function Footer() {
                     <a
                       key={social.name}
                       href={social.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="text-gray-400 hover:text-white transition-colors duration-200"
                       aria-label={social.name}
                     >

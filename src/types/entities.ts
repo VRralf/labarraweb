@@ -213,6 +213,7 @@ export interface Venue extends BaseEntity {
     facebook?: string
     twitter?: string
     tiktok?: string
+    whatsapp?: string
   }
   
   // Details
