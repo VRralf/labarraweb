@@ -57,6 +57,10 @@ export interface Artist extends BaseEntity {
     instagram?: string
     spotify?: string
     soundcloud?: string
+    youtube?: string
+    facebook?: string
+    tiktok?: string
+    twitter?: string
   }
   genre: string[]
 }
