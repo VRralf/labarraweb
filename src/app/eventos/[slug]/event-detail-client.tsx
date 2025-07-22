@@ -5,7 +5,7 @@
 
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Container } from '@/components/ui/container'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
@@ -38,7 +38,18 @@ interface EventDetailClientProps {
 export function EventDetailClient({ event }: EventDetailClientProps) {
   const [selectedTickets, setSelectedTickets] = useState<Record<string, number>>({})
   const [isLiked, setIsLiked] = useState(false)
+  const [imageLoaded, setImageLoaded] = useState(false)
   const { addItem, openCart } = useCartStore()
+
+  // Check if image exists
+  useEffect(() => {
+    if (event.coverImage) {
+      const img = new Image()
+      img.onload = () => setImageLoaded(true)
+      img.onerror = () => setImageLoaded(false)
+      img.src = event.coverImage
+    }
+  }, [event.coverImage])
 
   const updateTicketQuantity = (ticketId: string, change: number) => {
     setSelectedTickets(prev => {
@@ -109,10 +120,12 @@ export function EventDetailClient({ event }: EventDetailClientProps) {
     <div className="min-h-screen pt-20 pb-20">
       {/* Hero Section */}
       <section 
-        className="relative h-96 bg-cover bg-center"
-        style={{
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(${event.coverImage})`
-        }}
+        className="relative h-96 bg-gradient-to-br from-purple-600 via-pink-600 to-purple-800"
+        style={imageLoaded ? {
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${event.coverImage})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center'
+        } : {}}
       >
         <Container className="h-full flex items-center">
           <motion.div
