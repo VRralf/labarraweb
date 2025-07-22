@@ -9,6 +9,7 @@ import Link from 'next/link'
 import { Menu, X, Calendar, Image, Phone, Info } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Container } from '@/components/ui/container'
+import { CartButton } from '@/components/cart/cart-button'
 import { cn } from '@/lib/utils'
 
 const navigation = [
@@ -50,15 +51,17 @@ export function Header() {
             ))}
           </nav>
 
-          {/* CTA Button */}
-          <div className="hidden md:block">
+          {/* CTA Button and Cart */}
+          <div className="hidden md:flex items-center space-x-4">
+            <CartButton />
             <Button asChild size="sm">
               <Link href="/eventos">Ver Eventos</Link>
             </Button>
           </div>
 
-          {/* Mobile menu button */}
-          <div className="flex md:hidden">
+          {/* Mobile menu button and cart */}
+          <div className="flex md:hidden items-center space-x-2">
+            <CartButton />
             <Button
               variant="ghost"
               size="icon"
