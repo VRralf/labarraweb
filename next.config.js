@@ -6,8 +6,8 @@ const nextConfig = {
     unoptimized: true
   },
   // Configuración para GitHub Pages
-  assetPrefix: process.env.NODE_ENV === 'production' ? '/la-barra-web' : '',
-  basePath: process.env.NODE_ENV === 'production' ? '/la-barra-web' : '',
+  assetPrefix: process.env.NODE_ENV === 'production' ? '/labarraweb' : '',
+  basePath: process.env.NODE_ENV === 'production' ? '/labarraweb' : '',
 }
 
 module.exports = nextConfig
