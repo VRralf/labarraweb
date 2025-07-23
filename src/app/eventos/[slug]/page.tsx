@@ -5,7 +5,7 @@
 
 import { Container } from '@/components/ui/container'
 import { Button } from '@/components/ui/button'
-import { getEventBySlug } from '@/lib/mock-data'
+import { getEventBySlug, mockEvents } from '@/lib/mock-data'
 import { EventDetailClient } from './event-detail-client'
 import Link from 'next/link'
 
@@ -13,6 +13,13 @@ interface EventDetailPageProps {
   params: Promise<{
     slug: string
   }>
+}
+
+// Generate static params for all events
+export function generateStaticParams() {
+  return mockEvents.map((event) => ({
+    slug: event.slug,
+  }))
 }
 
 export default async function EventDetailPage({ params }: EventDetailPageProps) {
