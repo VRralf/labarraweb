@@ -209,7 +209,7 @@ export const mockEvents: Event[] = [
       capacity: 450,
       minAge: 18
     },
-    coverImage: '/images/events/bizarrap-night.jpg',
+    coverImage: '/images/events/flyers/reggaeton-night-2025.jpg',
     gallery: [mockGallery[0]],
     tickets: mockTicketTypes,
     metaTitle: 'BZRP Night - Bizarrap en Vivo - La Barra',
@@ -234,7 +234,7 @@ export const mockEvents: Event[] = [
       capacity: 450,
       minAge: 18
     },
-    coverImage: '/images/events/cattaneo-night.jpg',
+    coverImage: '/images/events/flyers/noche-electronica-julio.jpg',
     gallery: [mockGallery[1]],
     tickets: [
       {
@@ -280,7 +280,7 @@ export const mockEvents: Event[] = [
       capacity: 450,
       minAge: 18
     },
-    coverImage: '/images/events/lgante-night.jpg',
+    coverImage: '/images/events/flyers/cumbia-party-weekend.jpg',
     gallery: [],
     tickets: [
       {
@@ -324,7 +324,7 @@ export const mockEvents: Event[] = [
       capacity: 450,
       minAge: 18
     },
-    coverImage: '/images/events/duki-night.jpg',
+    coverImage: '/images/events/flyers/latin-trap-fest.jpg',
     gallery: [],
     tickets: [
       {
@@ -368,7 +368,7 @@ export const mockEvents: Event[] = [
       capacity: 450,
       minAge: 18
     },
-    coverImage: '/images/events/nathy-peluso-night.jpg',
+    coverImage: '/images/events/flyers/anos-90s-revival.jpg',
     gallery: [],
     tickets: [
       {
@@ -412,7 +412,7 @@ export const mockEvents: Event[] = [
       capacity: 450,
       minAge: 18
     },
-    coverImage: '/images/events/reggaeton-oldschool.jpg',
+    coverImage: '/images/events/flyers/estudiantes-night.jpg',
     gallery: [],
     tickets: [
       {
@@ -623,7 +623,7 @@ export const mockVenue: Venue = {
     'tuesday': { open: '', close: '' }, // Cerrado
     'wednesday': { open: '', close: '' } // Cerrado
   },
-  logo: '/images/logo.png',
+  logo: '/images/branding/logo-labarra.png',
   images: mockGallery,
   createdAt: new Date('2024-01-01'),
   updatedAt: new Date('2024-01-01')

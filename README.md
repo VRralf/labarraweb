@@ -1,4 +1,26 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🎉 La Barra - Club Nocturno Web
+
+> Sitio web oficial del club nocturno más exclusivo de San Salvador de Jujuy
+
+![La Barra](https://img.shields.io/badge/Club-La%20Barra-purple)
+![Next.js](https://img.shields.io/badge/Next.js-15-black)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-blue)
+![Tailwind](https://img.shields.io/badge/Tailwind-3-cyan)
+
+## 🌟 Características
+
+- ✨ Diseño moderno con video background y efectos LED
+- 🎵 Sistema completo de eventos y entradas
+- 🛒 Carrito de compras con Zustand
+- 📱 Responsive design para todos los dispositivos
+- 🎨 Interfaz glassmorphism y efectos neón
+- 🔒 Preparado para sistema de pagos
+
+## 🚀 Deploy Automático
+
+Este sitio se despliega automáticamente en GitHub Pages cuando se hace push a `main`:
+
+🌐 **URL en vivo**: `https://tuusuario.github.io/la-barra-web`
 
 ## Getting Started
 

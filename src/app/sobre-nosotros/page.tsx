@@ -391,14 +391,12 @@ export default function AboutPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <div className="aspect-square bg-gradient-to-br from-purple-600 to-pink-600 rounded-2xl opacity-80 relative overflow-hidden">
-                <div className="absolute inset-0 flex items-center justify-center text-white">
-                  <div className="text-center">
-                    <div className="text-6xl mb-4">👔</div>
-                    <div className="text-2xl font-bold">ELEGANTE SPORT</div>
-                    <div className="text-lg">Dress Code</div>
-                  </div>
-                </div>
+              <div className="aspect-square rounded-2xl relative overflow-hidden">
+                <img 
+                  src="/images/about/dress-code-labarra.jpg" 
+                  alt="Código de vestimenta La Barra - Ambiente elegante"
+                  className="w-full h-full object-cover"
+                />
               </div>
             </motion.div>
           </div>

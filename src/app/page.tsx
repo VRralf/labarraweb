@@ -17,26 +17,74 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen">
-      {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center bg-gradient-to-br from-purple-900 via-black to-pink-900">
-        <div className="absolute inset-0 bg-black/50" />
+      {/* Hero Section with Video Background */}
+      <section className="relative h-screen flex items-center justify-center overflow-hidden">
+        {/* Video Background */}
+        <div className="absolute inset-0 w-full h-full">
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover"
+            poster="/videos/hero-video-poster.jpg" // Opcional: imagen de poster mientras carga
+          >
+            <source src="/videos/hero-video.mp4" type="video/mp4" />
+            {/* Fallback para navegadores que no soportan video */}
+            <div className="absolute inset-0 bg-gradient-to-br from-purple-900 via-black to-pink-900" />
+          </video>
+          {/* Fallback gradient for loading or unsupported browsers */}
+          <div className="absolute inset-0 bg-gradient-to-br from-purple-900 via-black to-pink-900 -z-10" />
+        </div>
+        
+        {/* Dark overlay */}
+        <div className="absolute inset-0 bg-black/40" />
+        
+        {/* Content */}
         <Container className="relative z-10 text-center">
-          <motion.h1 
-            className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
+          {/* Logo */}
+          <motion.div 
+            className="mb-2 md:mb-2 lg:mb-3"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8 }}
           >
-            LA BARRA
-          </motion.h1>
-          <motion.p 
-            className="text-xl md:text-2xl text-gray-300 mb-8 max-w-2xl mx-auto"
+            <img 
+              src="/images/branding/logo-labarra.png" 
+              alt="La Barra Logo" 
+              className="w-80 md:w-96 lg:w-[480px] xl:w-[600px] 2xl:w-[720px] h-auto mx-auto filter drop-shadow-2xl"
+            />
+          </motion.div>
+          
+          <motion.div 
+            className="text-center space-y-4"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            La discoteca más exclusiva de San Salvador de Jujuy. Vive las mejores noches con música increíble y un ambiente único.
-          </motion.p>
+            {/* Tagline principal con efecto neón */}
+            <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold tracking-wider">
+              <span className="bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent animate-pulse">
+                LA NOCHE ES NUESTRA
+              </span>
+            </h2>
+            
+            {/* Subtítulo con efecto glassmorphism */}
+            <div className="mx-auto max-w-2xl">
+              <p className="text-lg md:text-xl lg:text-2xl font-medium text-white/90 backdrop-blur-sm bg-black/20 px-6 py-3 rounded-full border border-white/20 shadow-2xl">
+                ✨ <span className="bg-gradient-to-r from-yellow-300 to-orange-400 bg-clip-text text-transparent font-bold">Jujuy's Hottest Club</span> ✨
+              </p>
+            </div>
+            
+            {/* Ubicación con icono y estilo moderno */}
+            <div className="flex items-center justify-center space-x-2 text-gray-300">
+              <div className="w-2 h-2 bg-red-500 rounded-full animate-ping"></div>
+              <span className="text-sm md:text-base font-medium uppercase tracking-widest">
+                San Salvador de Jujuy
+              </span>
+              <div className="w-2 h-2 bg-red-500 rounded-full animate-ping"></div>
+            </div>
+          </motion.div>
         </Container>
       </section>
 
@@ -68,7 +116,13 @@ export default function HomePage() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
                 <Card className="overflow-hidden hover:scale-105 transition-transform duration-300">
-                  <div className="aspect-video bg-gradient-to-br from-purple-600 to-pink-600 relative">
+                  <div className="aspect-video relative overflow-hidden">
+                    <img 
+                      src={event.coverImage} 
+                      alt={event.title}
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-black/20" />
                     <div className="absolute top-4 left-4">
                       <Badge variant={event.category as any}>
                         {event.category}
@@ -161,9 +215,14 @@ export default function HomePage() {
               </Button>
             </div>
             <div className="relative">
-              <div className="aspect-square bg-gradient-to-br from-purple-600 to-pink-600 rounded-2xl opacity-80">
-                <div className="absolute inset-0 flex items-center justify-center text-white">
-                  <div className="text-center">
+              <div className="aspect-square rounded-2xl overflow-hidden relative">
+                <img 
+                  src="/images/venue/la-barra-interior-hero.jpg" 
+                  alt="Interior de La Barra nightclub"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                  <div className="text-center text-white">
                     <div className="text-4xl font-bold mb-2">450</div>
                     <div className="text-lg">Capacidad</div>
                   </div>

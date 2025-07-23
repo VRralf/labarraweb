@@ -153,7 +153,13 @@ export default function EventsPage() {
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                   >
                     <Card className="overflow-hidden hover:scale-105 transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/20">
-                      <div className="aspect-video bg-gradient-to-br from-purple-600 to-pink-600 relative">
+                      <div className="aspect-video relative overflow-hidden">
+                        <img 
+                          src={event.coverImage} 
+                          alt={event.title}
+                          className="w-full h-full object-cover"
+                        />
+                        <div className="absolute inset-0 bg-black/20" />
                         <div className="absolute top-4 left-4">
                           <Badge variant={event.category as any}>
                             {event.category}
