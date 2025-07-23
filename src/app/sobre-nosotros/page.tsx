@@ -8,6 +8,7 @@ import { Container } from '@/components/ui/container'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
+import { getImagePath } from '@/lib/asset-paths'
 import { motion } from 'framer-motion'
 import { 
   Clock, 
@@ -393,7 +394,7 @@ export default function AboutPage() {
             >
               <div className="aspect-square rounded-2xl relative overflow-hidden">
                 <img 
-                  src="/images/about/dress-code-labarra.jpg" 
+                  src={getImagePath("images/about/dress-code-labarra.jpg")} 
                   alt="Código de vestimenta La Barra - Ambiente elegante"
                   className="w-full h-full object-cover"
                 />

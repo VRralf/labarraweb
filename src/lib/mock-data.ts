@@ -4,6 +4,7 @@
  */
 
 import { Event, Artist, TicketType, MediaItem, Venue, EventStatus, EventCategory, TicketStatus } from '@/types/entities'
+import { getImagePath } from './asset-paths'
 
 // Mock artists - Famous Argentine artists
 export const mockArtists: Artist[] = [
@@ -12,7 +13,7 @@ export const mockArtists: Artist[] = [
     name: 'Bizarrap',
     slug: 'bizarrap',
     bio: 'Productor y DJ argentino mundialmente reconocido, creador de las BZRP Music Sessions. Pionero de la música urbana en Argentina.',
-    avatar: '/images/artists/bizarrap.jpg',
+    avatar: getImagePath('images/artists/bizarrap.jpg'),
     socialLinks: {
       instagram: 'https://instagram.com/bizarrap',
       spotify: 'https://spotify.com/artist/bizarrap',
@@ -27,7 +28,7 @@ export const mockArtists: Artist[] = [
     name: 'Hernán Cattáneo',
     slug: 'hernan-cattaneo',
     bio: 'DJ y productor argentino de house y progressive, considerado uno de los mejores DJs del mundo. Referente de la música electrónica nacional.',
-    avatar: '/images/artists/hernan-cattaneo.jpg',
+    avatar: getImagePath('images/artists/hernan-cattaneo.jpg'),
     socialLinks: {
       instagram: 'https://instagram.com/hernancattaneo',
       soundcloud: 'https://soundcloud.com/hernancattaneo',
@@ -42,7 +43,7 @@ export const mockArtists: Artist[] = [
     name: 'Duki',
     slug: 'duki',
     bio: 'Rapero y cantante argentino, uno de los exponentes más importantes del trap latino. Pionero de la nueva generación del hip-hop argentino.',
-    avatar: '/images/artists/duki.jpg',
+    avatar: getImagePath('images/artists/duki.jpg'),
     socialLinks: {
       instagram: 'https://instagram.com/dukissj',
       spotify: 'https://spotify.com/artist/duki',
@@ -57,7 +58,7 @@ export const mockArtists: Artist[] = [
     name: 'Miss Bolivia',
     slug: 'miss-bolivia',
     bio: 'Cantante, compositora y productora argentina de cumbia digital y música urbana. Referente del feminismo en la música argentina.',
-    avatar: '/images/artists/miss-bolivia.jpg',
+    avatar: getImagePath('images/artists/miss-bolivia.jpg'),
     socialLinks: {
       instagram: 'https://instagram.com/missbolivia',
       spotify: 'https://spotify.com/artist/missbolivia',
@@ -72,7 +73,7 @@ export const mockArtists: Artist[] = [
     name: 'L-Gante',
     slug: 'l-gante',
     bio: 'Cantante argentino de cumbia 420. Fenómeno viral que revolucionó la música popular argentina con su estilo único.',
-    avatar: '/images/artists/l-gante.jpg',
+    avatar: getImagePath('images/artists/l-gante.jpg'),
     socialLinks: {
       instagram: 'https://instagram.com/lgante_keloke',
       spotify: 'https://spotify.com/artist/lgante',
@@ -87,7 +88,7 @@ export const mockArtists: Artist[] = [
     name: 'Nathy Peluso',
     slug: 'nathy-peluso',
     bio: 'Cantante y compositora argentina de gran versatilidad musical. Fusiona géneros como hip-hop, jazz, reggaeton y música latina.',
-    avatar: '/images/artists/nathy-peluso.jpg',
+    avatar: getImagePath('images/artists/nathy-peluso.jpg'),
     socialLinks: {
       instagram: 'https://instagram.com/nathypeluso',
       spotify: 'https://spotify.com/artist/nathypeluso',
@@ -162,8 +163,8 @@ export const mockGallery: MediaItem[] = [
   {
     id: 'media-1',
     type: 'image',
-    url: '/images/gallery/night-1.jpg',
-    thumbnailUrl: '/images/gallery/thumbs/night-1.jpg',
+    url: getImagePath('images/gallery/night-1.jpg'),
+    thumbnailUrl: getImagePath('images/gallery/thumbs/night-1.jpg'),
     alt: 'Noche de reggaeton en La Barra',
     caption: 'Una noche increíble con DJ Axel',
     tags: ['reggaeton', 'party', 'nightlife'],
@@ -177,8 +178,8 @@ export const mockGallery: MediaItem[] = [
   {
     id: 'media-2',
     type: 'image',
-    url: '/images/gallery/dancefloor.jpg',
-    thumbnailUrl: '/images/gallery/thumbs/dancefloor.jpg',
+    url: getImagePath('images/gallery/dancefloor.jpg'),
+    thumbnailUrl: getImagePath('images/gallery/thumbs/dancefloor.jpg'),
     alt: 'Pista de baile llena',
     caption: 'La energía de la pista',
     tags: ['dancefloor', 'crowd', 'energy'],
@@ -209,7 +210,7 @@ export const mockEvents: Event[] = [
       capacity: 450,
       minAge: 18
     },
-    coverImage: '/images/events/flyers/reggaeton-night-2025.jpg',
+    coverImage: getImagePath('images/events/flyers/reggaeton-night-2025.jpg'),
     gallery: [mockGallery[0]],
     tickets: mockTicketTypes,
     metaTitle: 'BZRP Night - Bizarrap en Vivo - La Barra',
@@ -234,7 +235,7 @@ export const mockEvents: Event[] = [
       capacity: 450,
       minAge: 18
     },
-    coverImage: '/images/events/flyers/noche-electronica-julio.jpg',
+    coverImage: getImagePath('images/events/flyers/noche-electronica-julio.jpg'),
     gallery: [mockGallery[1]],
     tickets: [
       {
@@ -280,7 +281,7 @@ export const mockEvents: Event[] = [
       capacity: 450,
       minAge: 18
     },
-    coverImage: '/images/events/flyers/cumbia-party-weekend.jpg',
+    coverImage: getImagePath('images/events/flyers/cumbia-party-weekend.jpg'),
     gallery: [],
     tickets: [
       {
@@ -324,7 +325,7 @@ export const mockEvents: Event[] = [
       capacity: 450,
       minAge: 18
     },
-    coverImage: '/images/events/flyers/latin-trap-fest.jpg',
+    coverImage: getImagePath('images/events/flyers/latin-trap-fest.jpg'),
     gallery: [],
     tickets: [
       {
@@ -368,7 +369,7 @@ export const mockEvents: Event[] = [
       capacity: 450,
       minAge: 18
     },
-    coverImage: '/images/events/flyers/anos-90s-revival.jpg',
+    coverImage: getImagePath('images/events/flyers/anos-90s-revival.jpg'),
     gallery: [],
     tickets: [
       {
@@ -412,7 +413,7 @@ export const mockEvents: Event[] = [
       capacity: 450,
       minAge: 18
     },
-    coverImage: '/images/events/flyers/estudiantes-night.jpg',
+    coverImage: getImagePath('images/events/flyers/estudiantes-night.jpg'),
     gallery: [],
     tickets: [
       {
@@ -443,7 +444,7 @@ export const mockEvents: Event[] = [
       capacity: 450,
       minAge: 18
     },
-    coverImage: '/images/events/miss-bolivia-night.jpg',
+    coverImage: getImagePath('images/events/miss-bolivia-night.jpg'),
     gallery: [],
     tickets: [],
     createdAt: new Date('2024-01-01'),
@@ -466,7 +467,7 @@ export const mockEvents: Event[] = [
       capacity: 450,
       minAge: 18
     },
-    coverImage: '/images/events/aniversario.jpg',
+    coverImage: getImagePath('images/events/aniversario.jpg'),
     gallery: [],
     tickets: [],
     createdAt: new Date('2024-01-01'),
@@ -491,7 +492,7 @@ export const mockEvents: Event[] = [
       capacity: 300,
       minAge: 0
     },
-    coverImage: '/images/events/bowling-familiar.jpg',
+    coverImage: getImagePath('images/events/bowling-familiar.jpg'),
     gallery: [],
     tickets: [
       {
@@ -548,7 +549,7 @@ export const mockEvents: Event[] = [
       capacity: 300,
       minAge: 18
     },
-    coverImage: '/images/events/torneo-bowling.jpg',
+    coverImage: getImagePath('images/events/torneo-bowling.jpg'),
     gallery: [],
     tickets: [
       {
@@ -623,7 +624,7 @@ export const mockVenue: Venue = {
     'tuesday': { open: '', close: '' }, // Cerrado
     'wednesday': { open: '', close: '' } // Cerrado
   },
-  logo: '/images/branding/logo-labarra.png',
+  logo: getImagePath('images/branding/logo-labarra.png'),
   images: mockGallery,
   createdAt: new Date('2024-01-01'),
   updatedAt: new Date('2024-01-01')

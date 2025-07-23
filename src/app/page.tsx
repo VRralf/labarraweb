@@ -11,6 +11,7 @@ import { Badge } from '@/components/ui/badge'
 import { Calendar, MapPin, Users } from 'lucide-react'
 import { mockEvents, getFeaturedEvents } from '@/lib/mock-data'
 import { motion } from 'framer-motion'
+import { getVideoPath, getImagePath } from '@/lib/asset-paths'
 
 export default function HomePage() {
   const featuredEvents = getFeaturedEvents()
@@ -27,9 +28,9 @@ export default function HomePage() {
             loop
             playsInline
             className="absolute inset-0 w-full h-full object-cover"
-            poster="/videos/hero-video-poster.jpg" // Opcional: imagen de poster mientras carga
+            poster={getVideoPath("videos/hero-video-poster.jpg")} // Opcional: imagen de poster mientras carga
           >
-            <source src="/videos/hero-video.mp4" type="video/mp4" />
+            <source src={getVideoPath("videos/hero-video.mp4")} type="video/mp4" />
             {/* Fallback para navegadores que no soportan video */}
             <div className="absolute inset-0 bg-gradient-to-br from-purple-900 via-black to-pink-900" />
           </video>
@@ -50,7 +51,7 @@ export default function HomePage() {
             transition={{ duration: 0.8 }}
           >
             <img 
-              src="/images/branding/logo-labarra.png" 
+              src={getImagePath("images/branding/logo-labarra.png")} 
               alt="La Barra Logo" 
               className="w-80 md:w-96 lg:w-[480px] xl:w-[600px] 2xl:w-[720px] h-auto mx-auto filter drop-shadow-2xl"
             />
@@ -217,7 +218,7 @@ export default function HomePage() {
             <div className="relative">
               <div className="aspect-square rounded-2xl overflow-hidden relative">
                 <img 
-                  src="/images/venue/la-barra-interior-hero.jpg" 
+                  src={getImagePath("images/venue/la-barra-interior-hero.jpg")} 
                   alt="Interior de La Barra nightclub"
                   className="w-full h-full object-cover"
                 />
